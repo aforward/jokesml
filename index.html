@@ -49,6 +49,23 @@
       cursor: pointer;
     }
   </style>
+  <script>
+
+    window.onload = function() {
+      let toggleAnswer = document.getElementById("toggleAnswer");
+      let answer = document.getElementById("answer");
+
+      toggleAnswer.onclick = function() {
+        const isVisible = answer.classList.toggle("visible")
+        if (isVisible) {
+          toggleAnswer.innerHTML = "<em>Hide Answer</em>";
+        } else {
+          toggleAnswer.innerHTML = "Show Answer";
+        }
+      }
+     }
+
+  </script>
 </head>
 <body>
   <h1>JokesML</h1>
@@ -56,10 +73,10 @@
     <div class="question">
       What do you call a cow with no legs?
     </div>
-    <div class="answer">
+    <div id="answer" class="answer">
       Ground beef.
     </div>
-    <button>Show Answer</button>
+    <button id="toggleAnswer">Show Answer</button>
   </div>
 </body>
 </html>
