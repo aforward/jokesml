@@ -20,3 +20,7 @@ When the user clicks on "Show Answer", then show the answer, like below.
 <img width="626" alt="Screen Shot 2020-02-27 at 11 48 49 AM" src="https://user-images.githubusercontent.com/48086/75465932-57e6ed00-5957-11ea-96c2-ba35e2a10b16.png">
 
 If the users clicks again, the answer should disappear.
+
+# Q4 Move CSS and JavaScript into a separate file
+
+Up until now, the code has been written directly into the HTML, let's split it out into separarte files (CSS into `styles.css` and JavaScript into `events.js`)
