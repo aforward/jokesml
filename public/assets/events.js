@@ -9,12 +9,18 @@ window.onload = function() {
   };
 
   let nextJoke = () => {
-    const joke = {
-      question: "What do you call a cow with no legs?",
-      answer: "Ground beef.",
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState != 4) { return; }
+      if (this.status != 200) { return ;}
+
+      const joke = JSON.parse(this.responseText);
+      showJoke(joke);
     };
-    showJoke(joke);
-  };
+
+    xhttp.open("GET", "api.php", true);
+    xhttp.send();
+  }
 
   nextJoke();
 
