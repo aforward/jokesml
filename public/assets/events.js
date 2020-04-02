@@ -9,12 +9,14 @@ window.onload = function() {
   };
 
   let nextJoke = () => {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState != 4) { return; }
-      if (this.status != 200) { return ;}
+    const xhttp = new XMLHttpRequest();
 
-      const joke = JSON.parse(this.responseText);
+    xhttp.onreadystatechange = function() {
+      let me = this;
+      if (me.readyState != 4) { return; }
+      if (me.status != 200) { return ; }
+
+      const joke = JSON.parse(me.responseText);
       showJoke(joke);
     };
 
@@ -27,7 +29,8 @@ window.onload = function() {
   toggleAnswer.onclick = function() {
     const isVisible = answer.classList.toggle("visible")
     if (isVisible) {
-      toggleAnswer.innerHTML = "<em>Hide Answer</em>";
+      toggleAnswer.innerHTML = "<em>Next Joke</em>";
+      nextJoke();
     } else {
       toggleAnswer.innerHTML = "Show Answer";
     }
