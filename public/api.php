@@ -1,15 +1,9 @@
 <?php
 
-$jokes = [
-  [
-    "question" => "What do you call a cow with no legs?",
-    "answer" => "Ground beef.",
-  ],
-  [
-    "question" => "Why did the chicken cross the road?",
-    "answer" => "Because I didn't think up any other jokes before the lecture.",
-  ]
-];
+$dbconn = pg_connect("host=localhost port=5432 dbname=jokesml");
+$sql = 'SELECT question, answer FROM jokes';
+$result = pg_query($dbconn, $sql);
+$jokes = pg_fetch_all($result);
 
 $jokeIndex = array_rand($jokes, 1);
 $joke = $jokes[$jokeIndex];
